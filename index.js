@@ -11,17 +11,16 @@ const unknownEndpoint = require("./middlewares/unknownEndpoint");
 
 const port = process.env.PORT || 3000;
 
-const mongo = process.env.DATABASE;
-
+// const mongo = process.env.DATABASE;
 //connecting to database
-mongoose
-    .connect(mongo)
-    .then((result) => {
-        console.log("connected to MongoDB");
-    })
-    .catch((error) => {
-        console.log("error connecting to MongoDB:", error.message);
-    });
+// mongoose
+//     .connect(mongo)
+//     .then((result) => {
+//         console.log("connected to MongoDB");
+//     })
+//     .catch((error) => {
+//         console.log("error connecting to MongoDB:", error.message);
+//     });
 
 app.use(morganBodyLogger);
 
