@@ -24,6 +24,24 @@ const queryParams=(word) =>{  return {
            
        TableName: "Dictionary"
 }}
+// const randWordQueryParams=() =>{  return {
+//     ExpressionAttributeValues: {
+//         ":v1": {
+//           S: word
+//          }
+//        }, 
+//        KeyConditionExpression: "word = :v1", 
+//        TableName: "Dictionary"
+// }}
+
+//defining dynamoDb scan query params
+const scanParams = {
+    TableName: "Dictionary",
+    Limit: 100,
+};
+
+
+
 const putItemParams = {
     Item: {
         word: {
@@ -40,4 +58,4 @@ const putItemParams = {
     TableName: "Dictionary",
 };
 
-module.exports = { queryParams, createTableParams, putItemParams };
+module.exports = { queryParams, createTableParams, putItemParams,scanParams };

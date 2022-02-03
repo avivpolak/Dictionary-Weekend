@@ -25,6 +25,17 @@ async function putItem(params) {
         console.log("Error", err);
     }
 }
+//difining dynamodb scan operation
+async function scanTable(params) {
+    try {
+        const data = await dynamodb.scan(params).promise();
+        return data.Items;
+    } catch (err) {
+        console.log("Error", err);
+    }
+}
+
+
 async function insertMany (dictinary) {
     try {
        let i = 0;
@@ -46,4 +57,4 @@ async function insertMany (dictinary) {
         throw new Error (error)
     }
 }
-module.exports={getItem,createTable,putItem,insertMany}
+module.exports={getItem,createTable,putItem,insertMany,scanTable}
